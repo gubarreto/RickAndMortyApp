@@ -1,14 +1,21 @@
 import React from 'react';
-import {View, Text} from 'react-native';
+import {NavigationContainer} from '@react-navigation/native';
+import {SafeAreaProvider} from 'react-native-safe-area-context';
+
+import {Routes} from "./src/routes";
+import {GlobalContextProvider} from './src/context/global';
 
 const App = () => {
 
   return (
-    <>
-      <View style={{}}>
-        <Text>Rick and Morty App</Text>
-      </View>
-    </>
-  )
+    <NavigationContainer>
+      <SafeAreaProvider>
+        <GlobalContextProvider>
+          <Routes />
+        </GlobalContextProvider>
+      </SafeAreaProvider>
+    </NavigationContainer>
+  );
 };
+
 export default App;
